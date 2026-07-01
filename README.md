@@ -38,3 +38,13 @@ Each file has comments walking you through exactly what to write. Complete them 
 - `app.js` — complete the body of three route handlers: GET all, POST create, DELETE by id
 
 Full instructions: see the assignment doc linked in the course README.
+
+## Seed the database (optional)
+
+Once `db/index.js` and `models/Quote.js` are complete, you can populate the database with sample quotes instead of creating them manually through Postman:
+
+```bash
+node seed.js
+```
+
+This drops and recreates the `Quotes` table, then inserts 3 starter quotes. Only run it after the connection and model are wired up — the seed depends on both.
