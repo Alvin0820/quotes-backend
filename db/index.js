@@ -14,7 +14,18 @@
 // Every other file that needs the database imports from here.
 // Never create a second Sequelize connection in another file.
 // ============================================================
-const {Sequelize} = require("sequelize");
-const sequelize = new Sequelize("postgres://localhost:5432/quotes")
+const { Sequelize } = require("sequelize");
+
+const sequelize = new Sequelize(process.env.DATABASE_URL || "postgres://localhost:5432/quotes", {
+  dialect: "postgres",
+  dialectOptions: process.env.DATABASE_URL
+    ? {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
+    : {}
+});
 
 module.exports = sequelize;
