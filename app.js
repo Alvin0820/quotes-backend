@@ -36,7 +36,9 @@ const PORT = process.env.PORT || 8080
 
 app.use(express.json())  // lets the server read JSON from req.body
 app.use(morgan('dev'))   // logs every incoming request
-app.use(cors())          // allows the React frontend to call this server
+app.use(cors({
+  origin: "https://quotes-frontend-topaz.vercel.app"
+}))          // allows the React frontend to call this server
 
 
 // ============================================================
