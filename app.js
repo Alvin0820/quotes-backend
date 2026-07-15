@@ -15,6 +15,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
+require("dotenv").config()
 
 // ------------------------------------------------------------
 // STEP 1 — Import your database connection and Quote model
